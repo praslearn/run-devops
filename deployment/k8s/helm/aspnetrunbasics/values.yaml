@@ -1,0 +1,68 @@
+# Default values for aspnetrunbasics.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+pathBase: /webmvc
+
+image:
+  repository: localhost:5000/aspnetrunbasics
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "aspnetrunbasics"
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: NodePort
+  port: 8089
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  tls: []
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  values:
+  - name: ASPNETCORE_ENVIRONMENT
+    value: Development
+  urls:
+  # configmap declares variables which value is taken from the config map defined in template configmap.yaml (name is name of var and key the key in configmap).
+  configmap:
+    - name: ApiSettings__GatewayAddress
+      key: ApiSettings__GatewayAddress
+    - name: ElasticConfiguration__Uri
+      key: ElasticConfiguration__Uri    
