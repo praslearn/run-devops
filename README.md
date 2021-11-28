@@ -261,9 +261,9 @@ These tools are only accessible within the cluster. You can either use port-forw
 
 This tool is running on container [Cluster IP] / port 31001:
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/jaeger_1.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/Jaeger_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/jaeger_2.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/Jaeger_2.png)
 
 
 
