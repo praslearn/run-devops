@@ -196,7 +196,9 @@ Istio manages traffic flows between services, enforces access policies, and aggr
 The configuration files below will generate the resources (pods, services, service accounts, CRD, etc) needed to install Istio on your Minikube cluster:
 
 ``kubectl apply -f 1-istio-init.yaml``
+
 ``kubectl apply -f 2-istio-minikube.yaml``
+
 ``kubectl apply -f 3-kiali-secret.yaml``
 
 It will also install **Kiali**, **Prometheus**, **Grafana** and **Jaeger**.
@@ -223,19 +225,13 @@ This label will be used to determine whether Istio should be injected on the des
 
 In order to inject Istio in the application, you need to redeploy it.
 
-Go to the folder /run-aspnetcore-microservices/deployment/k8s/helm and run:
-
-``pwsh``
-
-![pwsh](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/pwsh.png)
-
-Run the script below:
+Go to the folder /run-aspnetcore-microservices/deployment/k8s/helm and run the **Powershell** script:
 
 ``./deploy-all.ps1``
 
 Now you should see the **Sidecar** containers injected in some of the Pods:
 
-![istio_proxy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/istio_proxy.png)
+![istio_proxy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/istio_proxy.png)
 
 ## Accessing Kiali, Grafana and Jaeger
 
@@ -243,31 +239,31 @@ These tools are only accessible within the cluster. You can either use port-forw
 
 ### Kiali
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/kiali_1.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/kiali_2.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_2.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/kiali_3.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_3.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/kiali_4.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_4.png)
 
 ### Grafana and Prometheus
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/grafana_1.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/grafana_2.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_2.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/grafana_3.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_3.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/grafana_4.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_4.png)
 
 ### Jaeger
 
 This tool is running on container [Cluster IP] / port 31001:
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/jaeger_1.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/jaeger_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/jaeger_2.png)
+![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/jaeger_2.png)
 
 
 
