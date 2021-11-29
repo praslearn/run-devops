@@ -278,7 +278,7 @@ Run the following command on Minikube:
 
 You should see the Ingress controller pods running:
 
-![ingress_1](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/ingress_1.png)
+![ingress_1](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_INGRESS/doc/ingress_1.png)
 
 ### Creating Nginx Ingress controller to the web app
 
@@ -290,7 +290,7 @@ Now you should see the Ingress created(*):
 
 ``kubectl get ingress -n default``
 
-![ingress_2](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/ingress_2.png)
+![ingress_2](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_INGRESS/doc/ingress_2.png)
 
 Note that I am using `my-minikube` as HOST name. You should configure your `/etc/hosts` file to be able to resolve this name to your Minikube cluster IP.
 
