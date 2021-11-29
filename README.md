@@ -1,4 +1,4 @@
-# Whats Including In This Repository
+# Microservices deployment and monitoring sample
 
 This is a complete example of implementation of a microservices-based architecture available for studying. This source code was forked and adapted from the repository [course](https://www.udemy.com/course/microservices-architecture-and-implementation-on-dotnet/?couponCode=AUGUST2021).
 
