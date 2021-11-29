@@ -14,6 +14,7 @@ I created the deployment code using:
 - Deployment to a local Kubernetes instance (**Minikube**), using **Helm charts**.
 - Installation of **Istio** as a service Mesh solution.
 - Using **Lens** for cluster management.
+- Using **Ingress controller** to expose the application from the outside Kubernetes cluster.
 
 ## Observability 
 
@@ -263,6 +264,42 @@ This tool is running on container [Cluster IP] / port 31001:
 ![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/Jaeger_2.png)
 
 
+## Using Nginx Ingress controller to expose the application
 
+So far we have exposed the web application using a **Node port** defined on the `aspnetrunbasics` helm chart (values.yaml). Using this configuration, Kubernetes will allocate a specific port on each Node to the web application service, and any request to your cluster on that port will be forwarded to the service.
+
+It works, but there is a more decouple/better way to implement it. See this documentation [here](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html).
+
+### Enabling Ingress controller on your cluster
+
+Run the following command on Minikube:
+
+``minikube addons enable ingress``
+
+You should see the Ingress controller pods running:
+
+![ingress_1](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_INGRESS/doc/ingress_1.png)
+
+### Creating Nginx Ingress controller to the web app
+
+Go to the folder: `deployment/k8s/ingress` and run the command:
+
+``kubectl apply -f ingress.yaml``
+
+Now you should see the Ingress created(*):
+
+``kubectl get ingress -n default``
+
+![ingress_2](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_INGRESS/doc/ingress_2.png)
+
+Note that I am using `my-minikube` as HOST name. You should configure your `/etc/hosts` file to be able to resolve this name to your Minikube cluster IP.
+
+The official documentation is [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/).
+
+### Known issue
+
+(*) If you receive this message when creating the ingress: **Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io"**, run the following work around (for studying purpose only):
+
+``kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission``
 
 
