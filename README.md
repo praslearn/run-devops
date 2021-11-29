@@ -43,7 +43,7 @@ Minikube is local Kubernetes, focusing on making it easy to learn and develop fo
 
 After the installation is finished with success, you should be able to see the Minikube pods running like this:
 
-![minikube](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/doc/minikube_1.png)
+![minikube](/doc/minikube_1.png)
 
 ## Create local Registry
 
