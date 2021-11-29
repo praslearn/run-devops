@@ -205,7 +205,7 @@ After you run it, you should see the containers running in the **istio-system** 
 
 ``kubectl get po -n istio-system``
 
-![istio_pods](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/istio_pods.png)
+![istio_pods](/doc/istio_pods.png)
 
 ## Enabling Istio
 
@@ -219,7 +219,7 @@ To confirm the label creation:
 
 This label will be used to determine whether Istio should be injected on the desired containers. By default, all the containers will be using Istio, except the ones explicitly configured to not use it. This configuration is done throught the deployment.yaml. For example, we will not inject Istio on Mongodb container, as shown below:
 
-![istio_inject_false](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/istio_inject_false.png)
+![istio_inject_false](/doc/istio_inject_false.png)
 
 In order to inject Istio in the application, you need to redeploy it.
 
@@ -229,7 +229,7 @@ Go to the folder /run-aspnetcore-microservices/deployment/k8s/helm and run the *
 
 Now you should see the **Sidecar** containers injected in some of the Pods:
 
-![istio_proxy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/istio_proxy.png)
+![istio_proxy](/doc/istio_proxy.png)
 
 ## Accessing Kiali, Grafana and Jaeger
 
@@ -237,31 +237,31 @@ These tools are only accessible within the cluster. You can either use port-forw
 
 ### Kiali
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_1.png)
+![tools](/doc/kiali_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_2.png)
+![tools](/doc/kiali_2.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_3.png)
+![tools](/doc/kiali_3.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/kiali_4.png)
+![tools](/doc/kiali_4.png)
 
 ### Grafana and Prometheus
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_1.png)
+![tools](/doc/grafana_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_2.png)
+![tools](/doc/grafana_2.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_3.png)
+![tools](/doc/grafana_3.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/grafana_4.png)
+![tools](/doc/grafana_4.png)
 
 ### Jaeger
 
 This tool is running on container [Cluster IP] / port 31001:
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/Jaeger_1.png)
+![tools](/doc/Jaeger_1.png)
 
-![tools](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/Istio/doc/Jaeger_2.png)
+![tools](/doc/Jaeger_2.png)
 
 
 ## Using Nginx Ingress controller to expose the application
@@ -278,7 +278,7 @@ Run the following command on Minikube:
 
 You should see the Ingress controller pods running:
 
-![ingress_1](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_INGRESS/doc/ingress_1.png)
+![ingress_1](/doc/ingress_1.png)
 
 ### Creating Nginx Ingress controller to the web app
 
@@ -290,7 +290,7 @@ Now you should see the Ingress created(*):
 
 ``kubectl get ingress -n default``
 
-![ingress_2](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_INGRESS/doc/ingress_2.png)
+![ingress_2](/doc/ingress_2.png)
 
 Note that I am using `my-minikube` as HOST name. You should configure your `/etc/hosts` file to be able to resolve this name to your Minikube cluster IP.
 
