@@ -302,4 +302,8 @@ The official documentation is [here](https://kubernetes.io/docs/tasks/access-app
 
 ``kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission``
 
+### Versions used on this demo
 
+* minikube 1.19.0
+* Helm : 3.7.0
+* ISTIO 1.10.3
