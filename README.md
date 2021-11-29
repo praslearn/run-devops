@@ -296,7 +296,7 @@ Note that I am using `my-minikube` as HOST name. You should configure your `/etc
 
 In my case, now I can access the web application using:
 
-``http://my-minikube/``
+http://my-minikube/
 
 The official Ingress documentation is [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/).
 
