@@ -294,7 +294,11 @@ Now you should see the Ingress created(*):
 
 Note that I am using `my-minikube` as HOST name. You should configure your `/etc/hosts` file to be able to resolve this name to your Minikube cluster IP.
 
-The official documentation is [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/).
+In my case, now I can access the web application using:
+
+``http://my-minikube/``
+
+The official Ingress documentation is [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/).
 
 ### Known issue
 
