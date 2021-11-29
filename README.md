@@ -92,7 +92,7 @@ Push to the registry:
 ``docker push localhost:5000/ocelotapigw``
 
 Verify if the images are available on the registry:
-![registry](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/registry_images.png)
+![registry](/doc/registry_images.png)
 
 
 After that, you are ready to start the application deployment into the Kubernetes cluster. The next step is to run the script below, that will create the pods, services and other K8S resources needed to run the application.
@@ -105,17 +105,17 @@ Go to the folder /run-aspnetcore-microservices/deployment/k8s/helm and run:
 
 ``pwsh``
 
-![pwsh](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/pwsh.png)
+![pwsh](/doc/pwsh.png)
 
 Run the script below:
 
 ``./deploy-all.ps1``
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/run_deploy.png)
+![run_deploy](/doc/run_deploy.png)
 
 You should see the pods running after some seconds:
 
-![pods_running](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/pods_running.png)
+![pods_running](/doc/pods_running.png)
 
 ## Accesing the application
 
@@ -133,7 +133,7 @@ You can do a port forward to web application service exposed on this 8089 port:
 
 If you are using Lens, go to PODS, click on the **aspnetrunbasics** POD and click on **Ports** link:
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/lens_aspnet.png)
+![run_deploy](/doc/lens_aspnet.png)
 
 ### Option (3): cluster IP and service port
 
@@ -143,7 +143,7 @@ You can access using your **[cluster IP]:[Service Port]** exposed by the Web app
 
 In my case, my cluster IP is 192.168.49.2:
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/cluster_ip.png)
+![run_deploy](/doc/cluster_ip.png)
 
 To identify the web application service port, you can you use:
 
@@ -151,19 +151,19 @@ To identify the web application service port, you can you use:
 
 In my case, my service port is 31293:
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/service_port.png)
+![run_deploy](/doc/service_port.png)
 
 And, using the browser:
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/browse_app.png)
+![run_deploy](/doc/browse_app.png)
 
 ## Accessing the application Web Status
 
 You can follow the same options (1 and 2) explained above, but accessing the **webstatus** POD. The option (3) is not available, because this POD is not available outside the cluster.
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/webstatus.png)
+![run_deploy](/doc/webstatus.png)
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/webstatusbrowser.png)
+![run_deploy](/doc/webstatusbrowser.png)
 
 ## Accessing the APIs using Swagger
 
@@ -174,16 +174,16 @@ The microservices APIs are only available within the cluster. You can also use p
 * discount
 * ordering
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/swagger.png)
+![run_deploy](/doc/swagger.png)
 
 
 ## Accessing Kibana (Elasticsearch)
 
 The Kibana is only accessible within the cluster. You can also use port-forward or access via LENS. In the first access, you will need to configure the elasticsearch Index to be able to see the application logs. The configuration is beyond the scope of this documentation, but all the microservices are configure to send logs to the Elasticsearch container also running in the cluster.
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/kibana_lens.png)
+![run_deploy](/doc/kibana_lens.png)
 
-![run_deploy](https://github.com/felipecembranelli/run-aspnetcore-microservices/blob/PR_K8S/doc/kibana.png)
+![run_deploy](/doc/kibana.png)
 
 # Using Istio
 
