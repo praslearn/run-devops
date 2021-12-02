@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-shoppingaggregator
+  labels:
+    app: stress-shoppingaggregator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stress-shoppingaggregator
+  template:
+    metadata:
+      name: stress-shoppingaggregator
+      labels:
+        app: stress-shoppingaggregator
+      annotations: {
+        "sidecar.istio.io/inject": "false"
+      }
+    spec:
+      containers:
+        - name: stress-shoppingaggregator
+          image: alpine:3.12
+          command:
+          - /bin/sh
+          - -c
+          - "while true; do wget -q -O- http://shoppingaggregator/api/v1/Shopping/test; done"

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-discount-grpc
+  labels:
+    app: stress-discount-grpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stress-discount-grpc
+  template:
+    metadata:
+      name: stress-discount-grpc
+      labels:
+        app: stress-discount-grpc
+      annotations: {
+        "sidecar.istio.io/inject": "false"
+      }
+    spec:
+      containers:
+        - name: stress-discount-grpc
+          image: alpine:3.12
+          command:
+          - /bin/sh
+          - -c
+          - "while true; do wget -q -O- http://discount-grpc/api/v1/Discount/product1; done"

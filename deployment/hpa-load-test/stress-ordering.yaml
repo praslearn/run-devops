@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-ordering
+  labels:
+    app: stress-ordering
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stress-ordering
+  template:
+    metadata:
+      name: stress-ordering
+      labels:
+        app: stress-ordering
+      annotations: {
+        "sidecar.istio.io/inject": "false"
+      }
+    spec:
+      containers:
+        - name: stress-ordering
+          image: alpine:3.12
+          command:
+          - /bin/sh
+          - -c
+          - "while true; do wget -q -O- http://ordering/api/v1/Order/test; done"
