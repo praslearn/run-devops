@@ -26,9 +26,9 @@ The following tools are availble using this deployment code:
 - **Jaeger** : open source software for tracing transactions between distributed services. It's used for monitoring and troubleshooting complex microservices environments.
 - **Prometheus** and **Grafana**: Prometheus is free and an open-source event monitoring tool for containers or microservices. Grafana is a multi-platform visualization software available since 2014.
 
-## Scaling (To be done)
-- **HPA**
-- **Keda**
+## Scaling
+- **HPA** : Horizontal Pod Autoscaler automatically scales the number of Pods based on observed CPU utilization or on some other application-provided metrics.
+- **Keda** - (To be done)
 
 # Run the application using Docker
 
@@ -306,7 +306,36 @@ The official Ingress documentation is [here](https://kubernetes.io/docs/tasks/ac
 
 ``kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission``
 
-# Versions used on this demo
+# Automatically scaling the application using HPA
+
+**HPA** (Horizontal Pod Autoscaler) automatically scales the number of Pods based on observed CPU utilization or on some other application-provided metrics.
+## HPA configuration
+
+In this demo, the Helm charts already implement HPA for some of the Microservices. For example, fot the **Basket microservices**, take a look on the helm files:
+
+* /deployment/k8s/helm/basket/values.yaml
+
+![ingress_2](/doc/hpa_3.png)
+
+The parameters defined above are used on the file /deployment/k8s/helm/basket/templates/hpa.yaml. You should change the parameters according to your context (cpu/memory).
+
+If you take a look on the HPA section of LENS you will see the autoscalers configured:
+
+![ingress_2](/doc/hpa_1.png)
+
+## Adding load to the application
+
+You can add load to the application to test the HPA configuration using the application in the folder /deployment/hpa-load-test:
+
+``kubectl apply -f stress-basket.yaml``
+
+To increase the number of requests, create more instances of this container:
+
+``kubectl scale deployment/stress-basket --replicas 5``
+
+More information about HPA can be found [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/).
+
+# Versions used in this demo
 
 * minikube 1.19.0
 * Helm : 3.7.0
